@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         onObserve()
     }
 
+    private fun initRecyclerView() {
+        binding.rv.adapter = adapter
+    }
+
     private fun onObserve() {
         viewModel.trackList.observe(this) {
             adapter.submitData(lifecycle, it)
         }
-    }
-
-    private fun initRecyclerView() {
-        binding.rv.adapter = adapter
     }
 }
